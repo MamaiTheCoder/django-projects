@@ -28,4 +28,27 @@ urlpatterns = [
         views.CourseModuleUpdateView.as_view(),
         name='course_module_update'
     ),
+    # Create new text, video, image, or file objects
+    # and add them to a module.
+    path(
+        'module/<int:module_id>/content/<model_name>/create/',
+        views.ContentCreateUpdateView.as_view(),
+        name='module_content_create'
+    ),
+    # Update an existing text, video, image, or file object.
+    path(
+        'module/<int:module_id>/content/<model_name>/<id>/s',
+        views.ContentCreateUpdateView.as_view(),
+        name='module_content_update'
+    ),
+    path(
+        'content/<int:id>/delete/',
+        views.ContentDeleteview.as_view(),
+        name='module_content_delete'
+    ),
+    path(
+        'module/<int:module_id>/',
+        views.ManageCourseListView.as_view(),
+        name='module_content_list'
+    ),
 ]
